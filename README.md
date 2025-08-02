@@ -21,3 +21,4 @@ Go to `apps/user-app` , run `npm run dev`
 
 Try logging in using phone - 1111111111 , password - alice (See `seed.ts`)
 
+! You might some errors on Components importing from `lucide-react`, thats because of the version mismatch of react and @types/react. But it doesnt affects the code
