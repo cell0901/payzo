@@ -1,0 +1,29 @@
+# build succeds on pr
+name: Build succeds on pr
+
+on: # run on pull request on master branch
+  pull_request:
+    branches:
+      -master
+      # can add more branches
+    
+
+  jobs:
+    build:
+      name: build the project
+      runs-on: ubuntu-latest # run github machine (azure since)
+      steps:
+        - uses: actions/checkout@v3 # clones the repo to github machine
+        - name: Use Node.js # install node js on machine
+          uses: actions/setup-node@v3 
+          with: 
+            node-version: '20'
+
+        - name: Install Dependencies # runs npm install
+          run: npm Install
+
+        - name: Generate prisma client
+          run: cd packages/db && npx prisma generate && cd ../..
+
+        - name: Run build
+          run: npm run build
