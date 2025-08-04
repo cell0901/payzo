@@ -13,9 +13,10 @@ on: # run on pull request on master branch
       name: build the project
       runs-on: ubuntu-latest # run github machine (azure since)
       steps:
-        - uses: actions/checkout@v3 # clones the repo to github machine
+        - uses: actions/checkout@v3 # clones the repo to github machine. this actions/checkout is already writen and audited by someone 
+         # so we dont have to write long ass code 
         - name: Use Node.js # install node js on machine
-          uses: actions/setup-node@v3 
+          uses: actions/setup-node@v3  # this action already created by somone and we using that
           with: 
             node-version: '20'
 
