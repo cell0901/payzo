@@ -29,7 +29,7 @@ async function getOnRampTransactions() {
             userId: Number(session?.user?.id)
         }
     });
-    return transactions.map(t => ({ // will return an array of objects with these props
+    return transactions.map((t:any) => ({ // will return an array of objects with these props
         time: t.startTime,
         amount: t.amount,
         status: t.status,

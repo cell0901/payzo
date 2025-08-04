@@ -27,7 +27,7 @@ export async function p2ptransfer(amount: number, to: string) {
 
     // since deductnig from one balance row to another we need to make sure all happens in one txn or nothing happens
     // so we use Txns
-    prisma.$transaction(async (tx) => { 
+    prisma.$transaction(async (tx:any) => { 
         await tx.$queryRaw`SELECT * FROM "Balance" WHERE "userId"= ${Number(userId)} FOR UPDATE`; 
 
         const fromBalance = await tx.balance.findUnique({

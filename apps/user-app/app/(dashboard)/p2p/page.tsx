@@ -19,7 +19,7 @@ async function getp2ptransfer(){
             toUser:true
         }
     })
-       return p2p.map(t =>({
+       return p2p.map((t:any) =>({
             time:t.timeStamp,
             amount:t.amount,
             fromUserEmail:t.fromUser.email,
