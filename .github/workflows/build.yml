@@ -23,7 +23,7 @@ on: # run on pull request on master branch
           run: npm Install
 
         - name: Generate prisma client
-          run: cd packages/db && npx prisma generate && cd ../..
+          run: npm run db:generate  # this will generate the client while running this will gen the client we defined it inside the json
 
         - name: Run build
           run: npm run build
