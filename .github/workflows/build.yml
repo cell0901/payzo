@@ -4,7 +4,7 @@ name: Build succeds on pr
 on: # run on pull request on master branch
   pull_request:
     branches:
-      -master
+      -main
       # can add more branches
     
 
