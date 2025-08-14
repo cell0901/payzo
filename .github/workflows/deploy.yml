@@ -29,4 +29,19 @@ jobs:
     - name: Verify Docker Image
       run: docker pull cell0901/cd-testing:latest
 
-    
+   # adding step to run the image on the ec2 machine
+
+    - name: Deploy to ec2
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SSH_HOST}} 
+        username: ${{ secrets.SSH_USERNAME}}
+        key: ${{ secrets.SSH_SECRET}}
+        scripts: |
+          sudo docker pull cell0901/cd-testing:latest
+          sudo docker stop web-app || true
+          sudo docker rm web-app || true
+          sudo docker run -d --name web-app -p 3005:3000 cell0901/cd-testing:latest
+
+    # now we just need to reverse proxy the request comming to  aws.ec2.serverice..:3005 to yourdomain.com so request come to yourdomain redirect to 
+    # your server
