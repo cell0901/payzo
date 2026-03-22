@@ -45,3 +45,10 @@ jobs:
 
     # now we just need to reverse proxy the request comming to  aws.ec2.serverice..:3005 to yourdomain.com so request come to yourdomain redirect to 
     # your server
+
+
+    # to get fancy we should add beanstalk (autoscaling group)
+    # or we can add IAAC - automatically launches ec2 server using ur aws credentials by writing some code here
+      # like size- small
+        # region - india
+        
