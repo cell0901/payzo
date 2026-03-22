@@ -1,5 +1,5 @@
 A simple payment wallet application like paytm 
-1. The user signsup using
+1. The user Signs up 
 2. Onramp the amount from bank account (mock bankwebhook handler) safely
 3. Send money to other friends using the app
 
